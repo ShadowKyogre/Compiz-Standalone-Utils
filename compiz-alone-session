@@ -16,7 +16,9 @@ else
     fi
 fi
 
-if test -r /usr/bin/compiz-decorator; then
+if test -r /usr/bin/fusion-icon; then
+	exec /usr/bin/fusion-icon
+elif test -r /usr/bin/compiz-decorator; then
 	exec /usr/bin/compiz-decorator "$@" ccp
 elif test -r /usr/bin/compiz; then
     exec /usr/bin/compiz "$@" ccp
