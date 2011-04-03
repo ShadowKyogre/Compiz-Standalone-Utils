@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Clean up after GDM
+xprop -root -remove _NET_NUMBER_OF_DESKTOPS \
+      -remove _NET_DESKTOP_NAMES \
+      -remove _NET_CURRENT_DESKTOP 2> /dev/null
+
+AUTOSTART="${XDG_CONFIG_HOME:-"$HOME/.config"}/compiz/autostart.sh"
+GLOBALAUTOSTART="/etc/xdg/compiz/autostart.sh"
+
+if test -r $AUTOSTART; then
+    . $AUTOSTART
+else
+    if test -r $GLOBALAUTOSTART; then
+        . $GLOBALAUTOSTART
+    fi
+fi
+
+if test -r /usr/bin/compiz-decorator; then
+	exec /usr/bin/compiz-decorator "$@" ccp
+elif test -r /usr/bin/compiz; then
+    exec /usr/bin/compiz "$@" ccp
+elif test -r /usr/bin/compiz-09; then
+    exec /usr/bin/compiz-09 "$@" ccp
+elif test -r /usr/bin/compiz-git;then
+    exec /usr/bin/compiz-git "$@" ccp
+else
+	echo "Error: No compiz executables found."
+	exit 1
+fi

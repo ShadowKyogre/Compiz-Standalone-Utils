@@ -1,0 +1,8 @@
+A set of scripts to make a more openbox-like experience possible for a
+Compiz stand-alone session.
+
+Components:
+compiz-alone-session: starts up a compiz session using a similar autostart file. It will always load your configuration and supports commandline arguments.
+autostart.sh: the default autostart, again based off of Openbox's autostart.sh.
+xdg-autostart: packaged as a standalone script from Openbox's package
+compiz-alone.desktop: the session file for session managers (eg: KDM/GDM/LXDM/etc.)

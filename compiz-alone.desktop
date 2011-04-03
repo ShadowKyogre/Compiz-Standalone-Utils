@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Compiz Standalone
+Comment=Log in using the Compiz window manager (without a session manager)
+Exec=/usr/bin/compiz-alone-session
+TryExec=/usr/bin/compiz-alone-session
+Icon=ccsm
+Type=XSession
